@@ -1,8 +1,24 @@
-import React from "react";
+import Header from "../../components/Header";
+
+import {
+    DashboardBackground,
+    BodyContainer,
+    InLineTitle,
+    InLineContainer
+} from './styles';
 
 const Dashboard = () => {
     return (
-        <p>test</p>
+        <DashboardBackground>
+            <Header />
+            <BodyContainer>
+                <InLineContainer>
+                    <InLineTitle>
+                        
+                    </InLineTitle>
+                </InLineContainer>
+            </BodyContainer>
+        </DashboardBackground>
     )
 }
 
