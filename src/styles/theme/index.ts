@@ -1,5 +1,4 @@
 import { colors } from '../colors';
-import { fonts } from '../fonts';
 
 export const theme = {
     colors: {
@@ -10,8 +9,5 @@ export const theme = {
         backgroundLight: colors.BACKGROUND2,
         red: colors.RED,
         green: colors.GREEN
-    },
-    fonts: {
-        regular: fonts.FONT  
     }
 }

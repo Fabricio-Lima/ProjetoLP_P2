@@ -10,6 +10,12 @@ import {
 import UserCirc from '../UserCicle';
 
 const Header = () => {
+    const navigate = useNavigate();
+
+    const HandleToDashboard =() => {
+        navigate('/')
+    }
+
     return (
         <HeaderContainer>
             <HeaderWrapper>
@@ -24,7 +30,7 @@ const Header = () => {
                         <strong>
                             12345678-9
                         </strong><br />
-                        <a href='#'>Sair</a>
+                        <a href='#' onClick={HandleToDashboard}> Sair </a>
                     </div>
                 </UserInfo>
             </HeaderWrapper>
