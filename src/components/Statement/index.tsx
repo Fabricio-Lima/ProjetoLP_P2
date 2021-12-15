@@ -17,7 +17,7 @@ interface StatementItem {
         lastName: string
     }
     value: number,
-    type: 'pay' | 'received',
+    type: 'paid' | 'received',
     updatedAt: Date
 }
 
@@ -37,7 +37,7 @@ const StatementItem = ({user, value, type, updatedAt}: StatementItem) => {
                 })}
                 </p>
                 <p>
-                    {type === 'pay' ? ' pago à ' : ' recebido de '}
+                    {type === 'paid' ? ' pago à ' : ' recebido de '}
                     <strong>
                         {user.firstName} {user.lastName}
                     </strong> 
@@ -47,8 +47,7 @@ const StatementItem = ({user, value, type, updatedAt}: StatementItem) => {
                 </p>
             </StatementItemInfo>
         </StatementItemContainer>
-    )
-}
+)}
 
 const Statement = () => {
 

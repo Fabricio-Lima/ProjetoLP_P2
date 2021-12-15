@@ -37,7 +37,7 @@ const Header = () => {
                         <strong>
                             {user.accountNumber} - {user.accountDigit}
                         </strong><br />
-                        <a href='#' onClick={HandleToDashboard}> Sair </a>
+                        <a href='/' onClick={HandleToDashboard}> Sair </a>
                     </div>
                 </UserInfo>
             </HeaderWrapper>
