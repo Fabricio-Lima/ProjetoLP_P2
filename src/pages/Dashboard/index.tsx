@@ -1,8 +1,11 @@
+import { useEffect } from "react";
 import Button from "../../components/Button";
 import Card from "../../components/Card";
 import Header from "../../components/Header";
 import Input from "../../components/Input";
 import Statement from "../../components/Statement";
+
+import useAuth from "../../hooks/useAuth";
 
 import {
     DashboardBackground,
@@ -12,8 +15,14 @@ import {
 } from './styles';
 
 const Dashboard = () => {
-    const wallet = 5000;
-    
+    const { user, getCurrentUser } = useAuth(); 
+    const wallet = user?.wallet || 0;
+
+    useEffect(() => {
+        getCurrentUser();
+    }, []);
+
+    if (!user) return null;
 
     return (
         <DashboardBackground>
@@ -69,7 +78,7 @@ const Dashboard = () => {
                     <Card width="90%" noShadow>
                         <InLineTitle>
                             <h2 className="h2">
-                                Extrato da conta
+                                Extrato da Conta
                             </h2>
                         </InLineTitle>
                         <Statement />

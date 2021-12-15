@@ -9,6 +9,6 @@ export const pay = (key: string) => {
     return api.post(`/pix/key/${key}`);
 }
 
-export const transaction = () => {
-    return api.get('/api/transactions')
+export const transactions = () => {
+    return api.get('/pix/transactions');
 }
