@@ -8,7 +8,7 @@ import {
 
 import {
     signIn,
-    //signUp,
+    signUp,
     SignInData,
     SignUpData,
     me
@@ -63,7 +63,7 @@ export const AuthProvider: React.FC = ({children}) => {
     }
 
     const userSignUp = async (userData: SignUpData) => {
-        const { data } = await signIn(userData);
+        const { data } = await signUp(userData);
         
         if (data.accessToken) localStorage.setItem('@Inter:Token', data.accessToken);
 

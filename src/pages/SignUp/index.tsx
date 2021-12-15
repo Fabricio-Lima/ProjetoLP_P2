@@ -1,9 +1,13 @@
+import { useState } from 'react';
+
 import background from '../../assets/images/background-login.jpg';
 import logo from '../../assets/images/Inter-orange.png';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
 import Input from '../../components/Input'
 import { Link, useNavigate } from 'react-router-dom';
+
+import useAuth from '../../hooks/useAuth';
 
 import {
     Wrapper,
@@ -14,10 +18,30 @@ import {
 
 
 const SignUp = () => {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    
     const navigate = useNavigate();
+    const { userSignUp } = useAuth();
 
-    const HandleToSignUp = () => {
-        navigate('/dashboard');
+    const HandleToSignUp = async () => {
+        const data = {
+            firstName,
+            lastName,
+            email,
+            password
+        };
+
+        const response = await userSignUp(data);
+
+        if(response.id){
+            navigate('/dashboard');
+            return;
+        }
+        alert('Erro');
+
     }
 
     return (
@@ -26,11 +50,27 @@ const SignUp = () => {
             <Card width="403px">
                 <img src={logo} width={172} height={61} alt='Logo-empresa' />
                 <InputContainer>
-                    <Input placeholder='NOME'/>
-                    <Input placeholder='SOBRENOME'/>
-                    <Input placeholder='EMAIL'/>
-                    <Input placeholder='SENHA' type='password'/>
-                    <Input placeholder='CONFIRMAR SENHA' type='password'/>
+                    <Input 
+                        placeholder='NOME' 
+                        value={firstName} 
+                        onChange={e => setFirstName(e.target.value)}
+                    />
+                    <Input 
+                        placeholder='SOBRENOME'
+                        value={lastName} 
+                        onChange={e => setLastName(e.target.value)}   
+                    />
+                    <Input 
+                        placeholder='EMAIL'
+                        value={email} 
+                        onChange={e => setEmail(e.target.value)}
+                    />
+                    <Input 
+                        placeholder='SENHA' 
+                        type='password'
+                        value={password} 
+                        onChange={e => setPassword(e.target.value)}    
+                    />
                 </InputContainer>
                 <ButtonContainer onClick={HandleToSignUp}>
                     <Button type='button'>
