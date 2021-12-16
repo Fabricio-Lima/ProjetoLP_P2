@@ -1,7 +1,4 @@
-import { 
-    //useEffect, 
-    useState 
-} from 'react';
+import { useState } from 'react';
 
 import background from '../../assets/images/background-login.jpg';
 import logo from '../../assets/images/Inter-orange.png';
@@ -29,6 +26,7 @@ const SignIn = () => {
     const { userSignIn } = useAuth();
 
     const HandleToSignIn = async () => {
+
         const data = {
             email,
             password
@@ -38,9 +36,8 @@ const SignIn = () => {
 
         if(response.id){
             navigate('/dashboard');
-            return;
-        }
-
+            return
+        } 
         alert('Usuário ou senha inválidos');
     }
 
@@ -68,6 +65,7 @@ const SignIn = () => {
                     />
                 </InputContainer>
                 <ButtonContainer onClick={HandleToSignIn}>
+                
                     <Button type='button'>
                         Entrar
                     </Button>

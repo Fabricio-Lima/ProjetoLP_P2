@@ -32,18 +32,17 @@ const Dashboard = () => {
 
     const handlePayPix = async () => {
         try {
-            const { data } = await pay(key);
+            const {data} = await pay(key);
             
             if(data.msg){
-                alert(data.msg);
+                alert(data.msg)
                 return
             }
-
-            alert('Não foi possível fazer o pagamento!');
-
-        }catch(e){
-            console.log(e)
-            alert('Não é possível receber o PIX do mesmo usuário!')
+            
+            alert('Não foi possível fazer o pagamento!')
+        } catch(e){
+            console.log(e);
+            alert('Não foi possível fazer o pagamento!')
         }
     }   
 

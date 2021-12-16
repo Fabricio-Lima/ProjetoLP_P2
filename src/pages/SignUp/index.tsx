@@ -36,12 +36,13 @@ const SignUp = () => {
 
         const response = await userSignUp(data);
 
-        if(response.id){
-            navigate('/dashboard');
-            return;
-        }
-        alert('Erro');
+        if(!data) return alert("Um dos campos está vazio!");
 
+        if(response.id){
+            navigate('/dashboard')
+            return
+        }
+        alert('Erro')
     }
 
     return (

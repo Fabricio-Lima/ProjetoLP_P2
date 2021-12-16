@@ -60,7 +60,7 @@ const Statement = () => {
 
     useEffect(() => {
         getAlltransactions();
-    }, []) 
+    }, []);
 
     return (
         <StatementContainer>
