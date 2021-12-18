@@ -1,12 +1,11 @@
 import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import background from '../../assets/images/background-login.jpg';
 import logo from '../../assets/images/Inter-orange.png';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
-import Input from '../../components/Input'
-
-import { Link, useNavigate } from 'react-router-dom';
+import Input from '../../components/Input';
 
 import {
     Wrapper,
@@ -15,7 +14,7 @@ import {
     ButtonContainer,
 } from './styles';
 
-import useAuth from '../../hooks/useAuth'
+import useAuth from '../../hooks/useAuth';
 
 
 const SignIn = () => {
@@ -26,6 +25,7 @@ const SignIn = () => {
     const { userSignIn } = useAuth();
 
     const HandleToSignIn = async () => {
+        if(!email || !password) alert("Preencha todos os campos!");
 
         const data = {
             email,
@@ -38,6 +38,7 @@ const SignIn = () => {
             navigate('/dashboard');
             return
         } 
+
         alert('Usuário ou senha inválidos');
     }
 
@@ -64,9 +65,8 @@ const SignIn = () => {
                         type='password'
                     />
                 </InputContainer>
-                <ButtonContainer onClick={HandleToSignIn}>
-                
-                    <Button type='button'>
+                <ButtonContainer>
+                    <Button type='button' onClick={HandleToSignIn}>
                         Entrar
                     </Button>
                     <p>
