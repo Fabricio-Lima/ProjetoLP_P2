@@ -16,7 +16,6 @@ import {
     ButtonContainer,
 } from './styles';
 
-
 const SignUp = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -27,6 +26,10 @@ const SignUp = () => {
     const { userSignUp } = useAuth();
 
     const HandleToSignUp = async () => {
+        if(!firstName || !lastName || !email || !password){
+            alert("Preencha todos os campos!");
+        }
+
         const data = {
             firstName,
             lastName,
@@ -36,12 +39,12 @@ const SignUp = () => {
 
         const response = await userSignUp(data);
 
-        if(response.id){
+        if(response.id) {
             navigate('/dashboard');
-            return;
+            return
         }
-        alert('Erro');
 
+        alert('Usuário já cadastrado!');
     }
 
     return (
@@ -72,9 +75,9 @@ const SignUp = () => {
                         onChange={e => setPassword(e.target.value)}    
                     />
                 </InputContainer>
-                <ButtonContainer onClick={HandleToSignUp}>
-                    <Button type='button'>
-                        Entrar
+                <ButtonContainer >
+                    <Button type='button' onClick={HandleToSignUp}>
+                        Cadastrar
                     </Button>
                     <p>
                         Já tem uma conta?
