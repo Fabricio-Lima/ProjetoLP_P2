@@ -17,7 +17,6 @@ const Header = () => {
 
     const initials = user.firstName.substr(0,1) + user.lastName.substr(0,1);
 
-
     const HandleToDashboard =() => {
         navigate('/')
     }

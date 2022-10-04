@@ -12,9 +12,11 @@ import {
     Background,
     InputContainer,
     ButtonContainer,
+    TitleForm
 } from './styles';
 
 import useAuth from '../../hooks/useAuth';
+import { InLineTitle } from '../Dashboard/styles';
 
 
 const SignIn = () => {
@@ -46,12 +48,9 @@ const SignIn = () => {
         <Wrapper>
             <Background image={background} />
             <Card width="403px">
-                <img 
-                    src={logo} 
-                    width={172} 
-                    height={61} 
-                    alt='Logo-empresa' 
-                />
+                <TitleForm>
+                    GTXBank
+                </TitleForm>
                 <InputContainer>
                     <Input 
                         placeholder='EMAIL' 

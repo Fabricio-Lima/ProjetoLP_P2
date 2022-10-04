@@ -48,5 +48,12 @@ export const ButtonContainer = styled.div`
     }
 `;
 
+export const TitleForm = styled.h1`
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 48px;
+    color: ${({theme}) => theme.colors.primary};
+    text-transform: uppercase;
+`;
 
 
