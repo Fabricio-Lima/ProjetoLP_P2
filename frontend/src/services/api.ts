@@ -2,11 +2,11 @@ import axios from 'axios';
 
 
 const api = axios.create({
-    baseURL: `http://192.168.18.55:3333/`
+    baseURL: `api_laravel`
 });
 
 api.interceptors.request.use(config => {
-    const token = localStorage.getItem('@Inter:Token') || '';
+    const token = localStorage.getItem('@SSID:Token') || '';
     config.headers = {
             'Authorization' : `Bearer ${token}`,
     }

@@ -37,7 +37,7 @@ export const AuthContext = createContext<ContextData>({} as ContextData);
 export const AuthProvider: React.FC = ({children}) => {
     
     const [user, setUser] = useState<UserDto>(() => {
-        const user = localStorage.getItem('@Inter:User');
+        const user = localStorage.getItem('@SSID:User');
 
         if (user) return JSON.parse(user);
 
@@ -48,7 +48,7 @@ export const AuthProvider: React.FC = ({children}) => {
         const { data } = await signIn(userData);
 
         if (data?.status === 'error') return data;
-        if (data.accessToken) localStorage.setItem('@Inter:Token', data.accessToken);
+        if (data.accessToken) localStorage.setItem('@SSID:Token', data.accessToken);
 
         return await getCurrentUser();
     }
@@ -57,7 +57,7 @@ export const AuthProvider: React.FC = ({children}) => {
         const { data } = await me();
 
         setUser(data);
-        localStorage.setItem('@Inter:User', JSON.stringify(user));
+        localStorage.setItem('@SSID:User', JSON.stringify(user));
 
         return data;
     }
@@ -65,7 +65,7 @@ export const AuthProvider: React.FC = ({children}) => {
     const userSignUp = async (userData: SignUpData) => {
         const { data } = await signUp(userData);
         
-        if (data.accessToken) localStorage.setItem('@Inter:Token', data.accessToken);
+        if (data.accessToken) localStorage.setItem('@SSID:Token', data.accessToken);
 
         return getCurrentUser();
     }
