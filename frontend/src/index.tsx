@@ -1,11 +1,10 @@
-import { ButtonHTMLAttributes } from "react";
-import { ButtonContainer } from "./styles";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-const Button = (props: ButtonHTMLAttributes<HTMLButtonElement>) => {
-    return (
-        <ButtonContainer {...props}>
-            {props.children}
-        </ButtonContainer>
-)};
-
-export default Button;
+ReactDOM.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+);
