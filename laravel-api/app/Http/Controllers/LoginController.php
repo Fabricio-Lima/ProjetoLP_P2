@@ -9,27 +9,27 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     /**
-        * Display login page.
-        *
-        * @return Renderable
-    */
+     * Display login page.
+     *
+     * @return Renderable
+     */
     public function show()
     {
-        return view('auth.login');
+        return view('loginPage');
     }
 
     /**
-        * Handle account login request
-        *
-        * @param LoginRequest $request
-        *
-        * @return \Illuminate\Http\Response
-    */
+     * Handle account login request
+     *
+     * @param LoginRequest $request
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function login(LoginRequest $request)
     {
         $credentials = $request->getCredentials();
 
-        if(!Auth::validate($credentials)):
+        if (!Auth::validate($credentials)) :
             return redirect()->to('login')->withErrors(trans('auth.failed'));
         endif;
 
