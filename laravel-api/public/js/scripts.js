@@ -1,6 +1,7 @@
 const emailInput = document.querySelector("#email");
 const passwordInput = document.querySelector("#password");
 
+
 emailInput.addEventListener("click", () => {
     emailInput.classList.remove("is-invalid")
 })
@@ -8,6 +9,8 @@ emailInput.addEventListener("click", () => {
 passwordInput.addEventListener("click", () => {
     passwordInput.classList.remove("is-invalid")
 })
+
+
 
 function teste(event) {
     if (!emailInput.value || !passwordInput.value) {
