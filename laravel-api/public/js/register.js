@@ -40,12 +40,10 @@ function register(event) {
         !input.value && isValidationFalse(event, input)
 
         if (input.dataset.js == "CPF") {
-
             const regexCPF = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/
             !regexCPF.test(input.value) && isValidationFalse(event, input)
         }
         if (input.dataset.js == "Phone") {
-
             const regexPhone = /(\(?\d{2}\)?\s)?(\d{4,5}\-\d{4})/
             !regexPhone.test(input.value) && isValidationFalse(event, input)
         }
@@ -56,7 +54,6 @@ function register(event) {
             input.value.length < 2 && isValidationFalse(event, input)
         }
         if (input.dataset.js == "Phone") {
-
             const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
             !regexEmail.test(input.value) && isValidationFalse(event, input)
         }
