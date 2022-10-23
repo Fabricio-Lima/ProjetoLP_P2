@@ -1,22 +1,18 @@
-const emailInput = document.querySelector("#email");
-const passwordInput = document.querySelector("#password");
+const inputs = document.querySelectorAll("input");
 
 
-emailInput.addEventListener("click", () => {
-    emailInput.classList.remove("is-invalid")
+inputs.forEach((input) => {
+    input.addEventListener("click", () => {
+        input.classList.contains("is-invalid")
+            && input.classList.remove("is-invalid")
+    })
 })
 
-passwordInput.addEventListener("click", () => {
-    passwordInput.classList.remove("is-invalid")
-})
-
-
-
-function teste(event) {
-    if (!emailInput.value || !passwordInput.value) {
-        event.preventDefault();
-        !emailInput.value && emailInput.classList.add("is-invalid")
-        !passwordInput.value && passwordInput.classList.add("is-invalid")
-        return;
-    }
+function onSubmit(event) {
+    inputs.forEach((input) => {
+        if (input.value === "") {
+            event.preventDefault();
+            input.classList.add("is-invalid")
+        }
+    })
 }

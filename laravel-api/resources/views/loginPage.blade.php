@@ -5,7 +5,7 @@
 @endsection
 @section("content")
     <div class="container">
-        <form action="" onsubmit="teste(event)" class="signin-form  container w-75">
+        <form action="" onsubmit="onSubmit(event)" class="signin-form  container w-75">
             <header class="text-center w-auto">
                 <h1>Login</h1>
             </header>
