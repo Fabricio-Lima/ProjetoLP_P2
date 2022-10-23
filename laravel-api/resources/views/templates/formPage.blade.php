@@ -2,6 +2,7 @@
 <html lang="pt-br">
     <head>
         <base href='/'>
+        <link rel="stylesheet" href="/css/styles.css">
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!--   Fonts   -->
@@ -15,8 +16,6 @@
         <title>
             @yield('titlePage')
         </title>
-        <link rel="stylesheet" href="/css/style.css">
-        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     </head>
 
     <body class="d-flex   h-100 flex-column bg-light">
