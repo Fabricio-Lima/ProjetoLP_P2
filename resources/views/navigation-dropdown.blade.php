@@ -4,9 +4,9 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
+                <div class="shrink-0 flex items-center" style="max-width: 5%;">
                     <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        <img src="{{ asset('farmacia-logo.png') }}" alt="farmacia-logo" style="max-width: 100%;">
                     </a>
                 </div>
 
@@ -19,14 +19,21 @@
                 @can('task_access')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="{{ route('tasks.index') }}" :active="request()->routeIs('tasks.*')">
-                            Tasks
+                            Pedidos
+                        </x-jet-nav-link>
+                    </div>
+                @endcan
+                @can('task_access')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('tasks.index') }}" :active="request()->routeIs('providers.*')">
+                            Fornecedores
                         </x-jet-nav-link>
                     </div>
                 @endcan
                 @can('user_access')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
-                            Users
+                            Usuários
                         </x-jet-nav-link>
                     </div>
                 @endcan
@@ -56,11 +63,11 @@
                     <x-slot name="content">
                         <!-- Account Management -->
                         <div class="block px-4 py-2 text-xs text-gray-400">
-                            {{ __('Manage Account') }}
+                            {{ __('Configurações da conta') }}
                         </div>
 
                         <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                            {{ __('Profile') }}
+                            {{ __('Perfil') }}
                         </x-jet-dropdown-link>
 
                         @if (Laravel\Jetstream\Jetstream::hasApiFeatures())

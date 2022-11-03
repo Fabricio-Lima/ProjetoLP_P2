@@ -8,8 +8,20 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-jet-welcome />
-            </div>
+                <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
+            <div>
+
+            <img src="{{ asset('farmacia-logo.png') }}" alt="farmacia-logo" style="max-width: 8%;">
+        </div>
+
+        <div class="mt-8 text-2xl">
+            Bem-vindo(a) à BioPharmacy.
+        </div>
+
+        <div class="mt-6 text-gray-500">
+            Com o foco na sua melhor experiência, desenvolvemos essa aplicação Web para facilitar nossos clientes
+            na hora de comprar nossos produtos. Por aqui, você pode solicitar pedidos de produtos do nosso
+            estoque e retirar em nossas lojas afiliais de maneira simples e sem burocracia.
         </div>
     </div>
 </x-app-layout>
