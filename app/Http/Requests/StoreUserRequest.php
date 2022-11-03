@@ -33,6 +33,6 @@ class StoreUserRequest extends FormRequest
 
     public function authorize()
     {
-        return Gate::allows('user_access');
+        return Gate::allows('admin_access');
     }
 }
