@@ -16,7 +16,7 @@ class StoreProviderRequest extends FormRequest
             'cnpj' => [
                 'required', 'string',
             ],
-            'telefone' => [
+            'celular' => [
                 'required', 'string',
             ]
         ];
