@@ -16,21 +16,21 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
-                @can('task_access')
+                @can('user_access')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="{{ route('tasks.index') }}" :active="request()->routeIs('tasks.*')">
-                            Pedidos
+                            Tasks
                         </x-jet-nav-link>
                     </div>
                 @endcan
-                @can('task_access')
+                @can('admin_access')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link href="{{ route('tasks.index') }}" :active="request()->routeIs('providers.*')">
+                        <x-jet-nav-link href="{{ route('providers.index') }}" :active="request()->routeIs('providers.*')">
                             Fornecedores
                         </x-jet-nav-link>
                     </div>
                 @endcan
-                @can('user_access')
+                @can('admin_access')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
                             Usuários
