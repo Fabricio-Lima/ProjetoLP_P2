@@ -12,16 +12,16 @@ class ProvidersController extends Controller
 {
     public function index()
     {
-        abort_if(Gate::denies('provider_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $providers = Provider::all();
 
-        return view('providers.index', compact('tasks'));
+        return view('providers.index', compact('providers'));
     }
 
     public function create()
     {
-        abort_if(Gate::denies('provider_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('providers.create');
     }
@@ -35,14 +35,14 @@ class ProvidersController extends Controller
 
     public function show(Provider $provider)
     {
-        abort_if(Gate::denies('provider_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('tasks.show', compact('provider'));
+        return view('providers.show', compact('provider'));
     }
 
     public function edit(Provider $provider)
     {
-        abort_if(Gate::denies('provider_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('providers.edit', compact('provider'));
     }
@@ -56,7 +56,7 @@ class ProvidersController extends Controller
 
     public function destroy(Provider $provider)
     {
-        abort_if(Gate::denies('provider_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $provider->delete();
 
