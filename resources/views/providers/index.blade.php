@@ -29,6 +29,7 @@
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Celular
                                     </th>
+                                    <th scope="col" width="200" class="px-6 py-3 bg-gray-50"> </th>
                                 </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
@@ -56,7 +57,7 @@
                                             <form class="inline-block" action="{{ route('providers.destroy', $provider->id) }}" method="POST" onsubmit="return confirm('Tem certeza?');">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Delete">
+                                                <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Deletar" style="background: none">
                                             </form>
                                         </td>
                                     </tr>
