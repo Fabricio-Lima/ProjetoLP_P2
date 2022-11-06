@@ -52,7 +52,7 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <a href="{{ route('providers.show', $provider->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Mostrar</a>
+                                            <!-- <a href="{{ route('providers.show', $provider->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Mostrar</a> -->
                                             <a href="{{ route('providers.edit', $provider->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Editar</a>
                                             <form class="inline-block" action="{{ route('providers.destroy', $provider->id) }}" method="POST" onsubmit="return confirm('Tem certeza?');">
                                                 <input type="hidden" name="_method" value="DELETE">
