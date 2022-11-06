@@ -15,24 +15,27 @@ class UpdateUserRequest extends FormRequest
                 'required',
             ],
             'cpf'    => [
-                'number_format',
+                'string',
                 'required',
             ],
             'rg'    => [
-                'number_format',
+                'string',
                 'required',
             ],
             'telefone'    => [
-                'number_format',
+                'string',
                 'required',
             ],
             'celular'    => [
-                'number_format',
+                'string',
                 'required',
             ],
             'email'   => [
                 'required',
                 'unique:users,email,' . request()->route('user')->id,
+            ],
+            'password' => [
+                'required',
             ],
             'roles.*' => [
                 'integer',
