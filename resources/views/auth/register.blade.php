@@ -10,8 +10,28 @@
             @csrf
 
             <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-label for="name" value="{{ __('Nome') }}" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('nome')" required autofocus autocomplete="nome" />
+            </div>
+
+            <div>
+                <x-jet-label for="cpf" value="{{ __('CPF') }}" />
+                <x-jet-input id="cpf" class="block mt-1 w-full" type="number_format" name="cpf" :value="old('cpf')" required autofocus autocomplete="cpf" />
+            </div>
+
+            <div>
+                <x-jet-label for="rg" value="{{ __('RG') }}" />
+                <x-jet-input id="rg" class="block mt-1 w-full" type="number_format" name="rg" :value="old('rg')" required autofocus autocomplete="rg" />
+            </div>
+
+            <div>
+                <x-jet-label for="celular" value="{{ __('Celular') }}" />
+                <x-jet-input id="celular" class="block mt-1 w-full" type="number_format" name="celular" :value="old('celular')" required autofocus autocomplete="celular" />
+            </div>
+
+            <div>
+                <x-jet-label for="telefone" value="{{ __('Telefone') }}" />
+                <x-jet-input id="telefone" class="block mt-1 w-full" type="number_format" name="telefone" :value="old('telefone')" required autofocus autocomplete="telefone" />
             </div>
 
             <div class="mt-4">

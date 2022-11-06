@@ -12,24 +12,54 @@
                     @csrf
                     @method('put')
                     <div class="shadow overflow-hidden sm:rounded-md">
-                        <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="name" class="block font-medium text-sm text-gray-700">Name</label>
+                    <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="name" class="block font-medium text-sm text-gray-700">Nome</label>
                             <input type="text" name="name" id="name" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('name', $user->name) }}" />
-                            @error('name')
+                                   value="{{ old('name', '') }}" />
+                            @error('nome')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
-
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="name" class="block font-medium text-sm text-gray-700">CPF</label>
+                            <input type="text" name="name" id="name" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('cpf', '') }}" />
+                            @error('cpf')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="name" class="block font-medium text-sm text-gray-700">RG</label>
+                            <input type="text" name="name" id="name" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('rg', '') }}" />
+                            @error('rg')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="name" class="block font-medium text-sm text-gray-700">Celular</label>
+                            <input type="text" name="name" id="name" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('celular', '') }}" />
+                            @error('celular')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="name" class="block font-medium text-sm text-gray-700">Telefone</label>
+                            <input type="text" name="name" id="name" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('telefone', '') }}" />
+                            @error('telefone')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="email" class="block font-medium text-sm text-gray-700">Email</label>
                             <input type="email" name="email" id="email" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('email', $user->email) }}" />
+                                   value="{{ old('email', '') }}" />
                             @error('email')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
-
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="password" class="block font-medium text-sm text-gray-700">Password</label>
                             <input type="password" name="password" id="password" class="form-input rounded-md shadow-sm mt-1 block w-full" />
