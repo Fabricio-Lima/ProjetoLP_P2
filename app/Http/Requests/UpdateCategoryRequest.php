@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class StoreProviderRequest extends FormRequest
+class UpdateCategoryRequest extends FormRequest
 {
     public function rules()
     {

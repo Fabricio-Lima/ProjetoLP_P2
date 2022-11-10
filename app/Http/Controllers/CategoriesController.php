@@ -14,7 +14,7 @@ class CategoriesController extends Controller
     {
         abort_if(Gate::denies('admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $categories = Provider::all();
+        $categories = Category::all();
 
         return view('categories.index', compact('categories'));
     }
