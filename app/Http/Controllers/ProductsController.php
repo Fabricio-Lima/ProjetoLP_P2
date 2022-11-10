@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\Provider;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -23,7 +25,10 @@ class ProductsController extends Controller
     {
         abort_if(Gate::denies('admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('products.create');
+        $categories = Category::all();
+        $providers = Provider::all();
+
+        return view('products.create', compact('categories', 'providers'));
     }
 
     public function store(StoreProductRequest $request)
