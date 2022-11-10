@@ -16,7 +16,7 @@
                             <label for="nome" class="block font-medium text-sm text-gray-700">Nome</label>
                             <input type="text" name="nome" id="nome" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                    value="{{ old('nome', $product->nome) }}" />
-                            @error('nome')
+                            @error('Nome')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
@@ -25,41 +25,45 @@
                             <label for="nome" class="block font-medium text-sm text-gray-700">Preço</label>
                             <input type="number" name="preco" id="preco" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                    value="{{ old('nome', $product->preco) }}" />
-                            @error('preco')
+                            @error('Preço')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
 
-                        <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="categoria" class="block font-medium text-sm text-gray-700">Categoria</label>
-                            <select name="category_id" class="form-control">
-                            @foreach ($categories as $category => $nome)
-                                <option value="{{ $category->id }}">
-                                @if ($key == old('category_id', $model->option))
-                                    selected="selected"
-                                @endif
-                                >{{ $nome }}</option>
-                            @endforeach
-                            </select>
-                            @error('categoria')
-                                <p class="text-sm text-red-600">{{ $message }}</p>
-                            @enderror
-                        </div>
+                        <div class="flex flex-row bg-white">
+                            <div class="px-4 py-5 bg-white sm:p-6">
+                                <label class="block font-medium text-sm text-gray-700">Categoria</label>
+                                <select name="categoria_id" class="form-control" value="{{ old('categoria_id', $product->category->id ) }}">
+                                    <option></option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}"
+                                        @if ($category->id == old('categoria_id', $product->category->id))
+                                            selected="selected"
+                                        @endif
+                                        > {{ $category->nome }} </option>
+                                    @endforeach
+                                </select>
+                                @error('Categoria')
+                                    <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
 
-                        <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="categoria" class="block font-medium text-sm text-gray-700">Fornecedor</label>
-                            <select name="provider_id" class="form-control">
-                            @foreach ($providers as $provider => $nome)
-                                <option value="{{ $provider->id }}">
-                                @if ($key == old('provider_id', $model->option))
-                                    selected="selected"
-                                @endif
-                                >{{ $nome }}</option>
-                            @endforeach
-                            </select>
-                            @error('provider')
-                                <p class="text-sm text-red-600">{{ $message }}</p>
-                            @enderror
+                            <div class="px-4 py-5 bg-white sm:p-6">
+                                <label class="block font-medium text-sm text-gray-700">Fornecedor</label>
+                                <select name="fornecedor_id" class="form-control" value="{{ old('fornecedor_id', $product->provider->id ) }}">
+                                    <option></option>
+                                    @foreach ($providers as $provider)
+                                        <option value="{{ $provider->id }}"
+                                        @if ($provider->id == old('fornecedor_id', $product->provider->id))
+                                            selected="selected"
+                                        @endif
+                                        > {{ $provider->nome }} </option>
+                                    @endforeach
+                                </select>
+                                @error('Fornecedor')
+                                    <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
                         </div>
 
                         <div class="flex justify-between flex-row bg-white">

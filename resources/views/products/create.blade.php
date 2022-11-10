@@ -35,7 +35,7 @@
                                 <select name="categoria_id" class="form-control" value="{{ old('categoria_id', '') }}">
                                     <option> </option>
                                 @foreach ($categories as $category)
-                                    <option value="1">{{ $category->nome }}</option>
+                                    <option value="{{ $category->id }}">{{ $category->nome }}</option>
                                 @endforeach
                                 </select>
                                 @error('categoria')
@@ -48,7 +48,7 @@
                                 <select name="fornecedor_id" class="form-control" value="{{ old('fornecedor_id', '') }}">
                                     <option> </option>
                                 @foreach ($providers as $provider)
-                                    <option value="1">{{ $provider->nome }}</option>
+                                    <option value="{{ $provider->id }}">{{ $provider->nome }}</option>
                                 @endforeach
                                 </select>
                                 @error('fornecedor')

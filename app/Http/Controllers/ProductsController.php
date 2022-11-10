@@ -49,7 +49,10 @@ class ProductsController extends Controller
     {
         abort_if(Gate::denies('admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('products.edit', compact('product'));
+        $categories = Category::all();
+        $providers = Provider::all();
+
+        return view('products.edit', compact('product', 'categories', 'providers'));
     }
 
     public function update(UpdateProductRequest $request, Product $product)

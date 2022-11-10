@@ -14,13 +14,13 @@ class UpdateProductRequest extends FormRequest
                 'required', 'string',
             ],
             'preco' => [
-                'required', 'number',
+                'required', 'numeric',
             ],
             'categoria_id' => [
-                'required', 'number',
+                'required', 'numeric',
             ],
             'fornecedor_id' => [
-                'required', 'number',
+                'required', 'numeric',
             ]
         ];
     }
