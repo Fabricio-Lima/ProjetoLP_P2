@@ -29,40 +29,41 @@
                             @enderror
                         </div>
 
-                        <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="nome" class="block font-medium text-sm text-gray-700">Categoria</label>
-                            <input type="text" name="preco" id="preco" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('preco', '') }}" />
-                            @error('preco')
-                                <p class="text-sm text-red-600">{{ $message }}</p>
-                            @enderror
+                        <div class="flex flex-row bg-white">
+                            <div class="px-4 py-5 bg-white sm:p-6">
+                                <label class="block font-medium text-sm text-gray-700">Categoria</label>
+                                <select name="categoria_id" class="form-control" value="{{ old('categoria_id', '') }}">
+                                    <option> </option>
+                                @foreach ($categories as $category)
+                                    <option value="1">{{ $category->nome }}</option>
+                                @endforeach
+                                </select>
+                                @error('categoria')
+                                    <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="px-4 py-5 bg-white sm:p-6">
+                                <label class="block font-medium text-sm text-gray-700">Fornecedor</label>
+                                <select name="fornecedor_id" class="form-control" value="{{ old('fornecedor_id', '') }}">
+                                    <option> </option>
+                                @foreach ($providers as $provider)
+                                    <option value="1">{{ $provider->nome }}</option>
+                                @endforeach
+                                </select>
+                                @error('fornecedor')
+                                    <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
                         </div>
 
-                        <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="nome" class="block font-medium text-sm text-gray-700">Categoria</label>
-                            <input type="text" name="categoria" id="categoria" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('categoria', '') }}" />
-                            @error('categoria')
-                                <p class="text-sm text-red-600">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="nome" class="block font-medium text-sm text-gray-700">Fornecedor</label>
-                            <input type="text" name="fornecedor" id="fornecedor" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('fornecedor', '') }}" />
-                            @error('fornecedor')
-                                <p class="text-sm text-red-600">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="flex justify-between flex-row">
-                            <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
+                        <div class="flex justify-between flex-row bg-white">
+                            <div class="flex items-center justify-end px-4 py-3 bg-white text-right sm:px-6">
                                 <button lass="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                                     <a href="{{ route('products.index') }}">Voltar</a>
                                 </button>
                             </div>
-                            <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
+                            <div class="flex items-center justify-end px-4 py-3 bg-white text-right sm:px-6">
                                 <button class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                                     Adicionar
                                 </button>
