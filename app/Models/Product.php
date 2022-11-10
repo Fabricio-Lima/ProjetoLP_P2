@@ -22,7 +22,7 @@ class Product extends Model
         return $this->belongsTo('App\Models\Provider', 'fornecedor_id');
     }
 
-     public function Category()
+    public function Category()
     {
         return $this->belongsTo('App\Models\Category', 'categoria_id');
     }
