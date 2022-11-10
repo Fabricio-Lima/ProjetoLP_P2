@@ -30,6 +30,23 @@
                         </x-jet-nav-link>
                     </div>
                 @endcan
+
+                @can('admin_access')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.*')">
+                            Categorias
+                        </x-jet-nav-link>
+                    </div>
+                @endcan
+
+                @can('admin_access')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('products.*')">
+                            Produtos
+                        </x-jet-nav-link>
+                    </div>
+                @endcan
+
                 @can('admin_access')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
