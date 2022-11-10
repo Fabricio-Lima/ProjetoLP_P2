@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Schema\ForeignIdColumnDefinition;
 
 class Product extends Model
 {
@@ -14,7 +13,17 @@ class Product extends Model
     protected $fillable = [
         'nome',
         'preco',
-        'categoria_id',
         'fornecedor_id',
+        'categoria_id'
     ];
+
+    public function Provider()
+    {
+        return $this->belongsTo('App\Models\Provider', 'fornecedor_id');
+    }
+
+     public function Category()
+    {
+        return $this->belongsTo('App\Models\Category', 'categoria_id');
+    }
 }
