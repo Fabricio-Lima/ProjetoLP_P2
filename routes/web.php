@@ -26,5 +26,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('providers', \App\Http\Controllers\ProvidersController::class);
 
+    Route::resource('categories', \App\Http\Controllers\CategoriesController::class);
+
+    Route::resource('products', \App\Http\Controllers\ProductsController::class);
+
+    // Route::resource('orders', \App\Http\Controllers\OrdersController::class);
+
     Route::resource('users', \App\Http\Controllers\UsersController::class);
 });
