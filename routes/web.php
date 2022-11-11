@@ -30,7 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('products', \App\Http\Controllers\ProductsController::class);
 
-    // Route::resource('orders', \App\Http\Controllers\OrdersController::class);
+    Route::resource('orders', \App\Http\Controllers\OrdersController::class);
 
     Route::resource('users', \App\Http\Controllers\UsersController::class);
 });

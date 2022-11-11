@@ -47,6 +47,14 @@
                     </div>
                 @endcan
 
+                @can('user_access')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('orders.index') }}" :active="request()->routeIs('orders.*')">
+                            Pedidos
+                        </x-jet-nav-link>
+                    </div>
+                @endcan
+
                 @can('admin_access')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
