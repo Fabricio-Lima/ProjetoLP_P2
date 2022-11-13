@@ -16,12 +16,6 @@ class StoreOrderRequest extends FormRequest
             'pagamento' => [
                 'required', 'string',
             ],
-            'precoTotal' => [
-                'required', 'numeric' . 100,
-            ],
-            'usuario_id' => [
-                'required', 'numeric' . auth()->user()->id,
-            ],
             'produto_id' => [
                 'required', 'numeric',
             ]

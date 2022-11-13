@@ -32,9 +32,21 @@ class OrdersController extends Controller
 
     public function store(StoreOrderRequest $request)
     {
-        $request->request->add(['precoTotal' => 100]);
+        $product = Product::where("id", $request->produto_id)->firstOrFail();
+        $precoTotal = $product->preco * $request->quantidade;
+        $userCurrent = auth()->user()->id;
 
-        Order::create($request->validated());
+        if ($request->validated()) {
+            $order = new Order();
+
+            $order->quantidade = $request->quantidade;
+            $order->produto_id = $request->produto_id;
+            $order->usuario_id = $userCurrent;
+            $order->pagamento  = $request->pagamento;
+            $order->precoTotal = $precoTotal;
+
+            $order->save();
+        };
 
         return redirect()->route('orders.index');
     }
@@ -50,13 +62,27 @@ class OrdersController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        if (!Gate::allows('admin_access')) abort_if($order->usuario_id != auth()->user()->id, Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $products = Product::all();
 
         return view('orders.edit', compact('order', 'products'));
     }
     public function update(UpdateOrderRequest $request, Order $order)
     {
-        $order->update($request->validated());
+        $product = Product::where("id", $request->produto_id)->firstOrFail();
+        $precoTotal = $product->preco * $request->quantidade;
+        $userCurrent = auth()->user()->id;
+
+        if ($request->validated()) {
+            $order->quantidade = $request->quantidade;
+            $order->produto_id = $request->produto_id;
+            $order->usuario_id = $userCurrent;
+            $order->pagamento  = $request->pagamento;
+            $order->precoTotal = $precoTotal;
+
+            $order->update();
+        };
 
         return redirect()->route('orders.index');
     }
@@ -64,6 +90,8 @@ class OrdersController extends Controller
     public function destroy(Order $order)
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        if (!Gate::allows('admin_access')) abort_if($order->usuario_id != auth()->user()->id, Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $order->delete();
 

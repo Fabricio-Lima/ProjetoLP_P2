@@ -37,6 +37,7 @@
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach ($orders as $order)
+                                    @if ($order->usuario_id == auth()->user()->id || Gate::allows('admin_access'))
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                             {{ $order->id }}
@@ -70,6 +71,7 @@
                                             </form>
                                         </td>
                                     </tr>
+                                    @endif
                                 @endforeach
                                 </tbody>
                             </table>
