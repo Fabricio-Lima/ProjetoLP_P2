@@ -1,4 +1,15 @@
 <?php return array (
+  'bmatovu/laravel-xml' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Bmatovu\\LaravelXml\\LaravelXmlServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Xml' => 'Bmatovu\\LaravelXml\\LaravelXml',
+    ),
+  ),
   'facade/ignition' => 
   array (
     'providers' => 
