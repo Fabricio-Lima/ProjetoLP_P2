@@ -19,9 +19,12 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     public function update($user, array $input)
     {
         Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
+            'nome' => ['required', 'string', 'max:255'],
+            'rg' => ['required', 'string', 'max:255'],
+            'cpf' => ['required', 'string', 'max:255'],
+            'telefone' => ['string', 'max:255'],
+            'celular' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'photo' => ['nullable', 'image', 'max:1024'],
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
@@ -33,7 +36,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $this->updateVerifiedUser($user, $input);
         } else {
             $user->forceFill([
-                'name' => $input['name'],
+                'nome' => $input['nome'],
+                'rg' => $input['rg'],
+                'cpf' => $input['cpf'],
+                'celular' => $input['celular'],
+                'telefone' => $input['telefone'],
                 'email' => $input['email'],
             ])->save();
         }
@@ -49,7 +56,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     protected function updateVerifiedUser($user, array $input)
     {
         $user->forceFill([
-            'name' => $input['name'],
+            'nome' => $input['nome'],
+            'rg' => $input['rg'],
+            'cpf' => $input['cpf'],
+            'celular' => $input['celular'],
+            'telefone' => $input['telefone'],
             'email' => $input['email'],
             'email_verified_at' => null,
         ])->save();
