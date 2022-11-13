@@ -16,12 +16,6 @@ class UpdateOrderRequest extends FormRequest
             'pagamento' => [
                 'required', 'string',
             ],
-            'precoTotal' => [
-                'required', 'numeric',
-            ],
-            'usuario_id' => [
-                'required', 'numeric',
-            ],
             'produto_id' => [
                 'required', 'numeric',
             ]

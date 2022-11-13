@@ -15,11 +15,15 @@
                         <div class="flex flex-row bg-white">
                             <div class="px-4 py-5 bg-white sm:p-6">
                                 <label class="block font-medium text-sm text-gray-700">Produto</label>
-                                <select name="produto_id" class="form-control" value="{{ old('produto_id', $order->produto_id) }}">
-                                    <option> </option>
-                                @foreach ($products as $product)
-                                    <option value="{{ $product->id }}">{{ $product->nome }}</option>
-                                @endforeach
+                                <select name="produto_id" class="form-control" value="{{ old('produto_id', $order->product->id ) }}">
+                                    <option></option>
+                                    @foreach ($products as $product)
+                                        <option value="{{ $product->id }}"
+                                        @if ($product->id == old('produto_id', $order->product->id))
+                                            selected="selected"
+                                        @endif
+                                        > {{ $product->nome }} </option>
+                                    @endforeach
                                 </select>
                                 @error('Produto')
                                     <p class="text-sm text-red-600">{{ $message }}</p>
@@ -28,9 +32,23 @@
 
                             <div class="px-4 py-5 bg-white sm:p-6">
                                 <label for="nome" class="block font-medium text-sm text-gray-700">Quantidade</label>
-                                <input type="text" name="quantidade" id="quantidade" type="number" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                <input type="number" name="quantidade" id="quantidade" type="number" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                     value="{{ old('quantidade', $order->quantidade) }}" />
                                 @error('Quantidade')
+                                    <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="px-4 py-5 bg-white sm:p-6">
+                                <label class="block font-medium text-sm text-gray-700">Pagamento</label>
+                                <select name="pagamento" class="form-control" value="{{ old('pagamento', $order->pagamento) }}">
+                                    <option></option>
+                                    <option>Cartão de Crédito</option>
+                                    <option>Boleto Bancário</option>
+                                    <option>Cartão de Débito</option>
+                                    <option>Dinheiro</option>
+                                </select>
+                                @error('Pagamento')
                                     <p class="text-sm text-red-600">{{ $message }}</p>
                                 @enderror
                             </div>

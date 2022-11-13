@@ -71,7 +71,19 @@ class OrdersController extends Controller
 
     public function update(UpdateOrderRequest $request, Order $order)
     {
-        $order->update($request->validated());
+        $product = Product::where("id", $request->produto_id)->firstOrFail();
+        $precoTotal = $product->preco * $request->quantidade;
+        $userCurrent = auth()->user()->id;
+
+        if ($request->validated()) {
+            $order->quantidade = $request->quantidade;
+            $order->produto_id = $request->produto_id;
+            $order->usuario_id = $userCurrent;
+            $order->pagamento  = $request->pagamento;
+            $order->precoTotal = $precoTotal;
+
+            $order->update();
+        };
 
         return redirect()->route('orders.index');
     }
