@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "43d0f2a5ca6dd5615663048ae0829c46",
+    "content-hash": "b70eb538e44f1c2912ddd21e1c71f332",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -115,6 +115,79 @@
                 "source": "https://github.com/Bacon/BaconQrCode/tree/2.0.7"
             },
             "time": "2022-03-14T02:02:36+00:00"
+        },
+        {
+            "name": "bmatovu/laravel-xml",
+            "version": "v3.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mtvbrianking/laravel-xml.git",
+                "reference": "cb504433843fbb71f3909eb08d993b44b600326e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mtvbrianking/laravel-xml/zipball/cb504433843fbb71f3909eb08d993b44b600326e",
+                "reference": "cb504433843fbb71f3909eb08d993b44b600326e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^7.0|^8.0|^9.0",
+                "illuminate/http": "^7.0|^8.0|^9.0",
+                "illuminate/support": "^7.0|^8.0|^9.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "code-lts/doctum": "^5.4",
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "orchestra/testbench": "^5.0|^6.0|^7.0",
+                "phpunit/phpunit": "^8.4|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Bmatovu\\LaravelXml\\LaravelXmlServiceProvider"
+                    ],
+                    "aliases": {
+                        "Xml": "Bmatovu\\LaravelXml\\LaravelXml"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Support/helpers.php"
+                ],
+                "psr-4": {
+                    "Bmatovu\\LaravelXml\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brian Matovu",
+                    "email": "mtvbrianking@gmail.com",
+                    "homepage": "http://bmatovu.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel XML Support",
+            "homepage": "https://github.com/mtvbrianking/laravel-xml",
+            "keywords": [
+                "laravel",
+                "middleware",
+                "package",
+                "request",
+                "response",
+                "xml"
+            ],
+            "support": {
+                "issues": "https://github.com/mtvbrianking/laravel-xml/issues",
+                "source": "https://github.com/mtvbrianking/laravel-xml/tree/v3.1.1"
+            },
+            "time": "2022-04-07T13:39:58+00:00"
         },
         {
             "name": "brick/math",

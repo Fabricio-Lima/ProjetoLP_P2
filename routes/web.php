@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Order;
+use App\Models\Product;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,4 +34,24 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('orders', \App\Http\Controllers\OrdersController::class);
 
     Route::resource('users', \App\Http\Controllers\UsersController::class);
+});
+
+Route::get("/order/{id}/clientsxml", function ($id) {
+    $orders = Order::all();
+    foreach ($orders as $order) {
+        if ($id == $order->id) {
+            $idCompra = $order->id;
+            $nome = $order->product->nome;
+            $preçoTotal = $order->precoTotal;
+            $quantidade = $order->quantidade;
+            $preco = $order->product->preco;
+        }
+    }
+    $compra = [
+        "id" => $idCompra, "nome" => $nome,
+        "quantidade" => $quantidade,
+        "preço" => $preco,
+        "preçoTotal" => $preçoTotal,
+    ];
+    return response()->xml(["compra" => $compra]);
 });

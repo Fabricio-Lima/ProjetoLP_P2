@@ -54,7 +54,6 @@ class OrdersController extends Controller
 
         return view('orders.edit', compact('order', 'products'));
     }
-
     public function update(UpdateOrderRequest $request, Order $order)
     {
         $order->update($request->validated());
