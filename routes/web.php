@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Order;
 use App\Models\Product;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,26 +39,35 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', \App\Http\Controllers\UsersController::class);
 });
 
-Route::get("/order/{id}/NF-e", function ($id) {
+Route::get("/order/{id}/comprovante", function ($id) {
+    abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
     $orders = Order::all();
+
     foreach ($orders as $order) {
         if ($id == $order->id) {
-            $idCompra = $order->id;
-            $nome = $order->product->nome;
-            $preçoTotal = $order->precoTotal;
+            $usuario_id = $order->usuario_id;
+            $idPedido = $order->id;
+            $cliente = auth()->user()->nome;
+            $produto = $order->product->nome;
+            $precoUni = $order->product->preco;
             $quantidade = $order->quantidade;
-            $preco = $order->product->preco;
+            $preçoTotal = $order->precoTotal;
             $pagamento = $order->pagamento;
         }
     }
-    $compra = [
-        "Empresa" => "BioPharmacy",
-        "Id Compra" => $idCompra,
-        "Nome" => $nome,
-        "Preço" => $preco,
+
+    if (!Gate::allows('admin_access')) abort_if($usuario_id != auth()->user()->id, Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+    $pedido = [
+        "Fornecedor" => "BioPharmacy",
+        "ID" => $idPedido,
+        "Cliente" => $cliente,
+        "Produto" => $produto,
+        "Preço Unitário" => $precoUni,
         "Quantidade" => $quantidade,
         "Preço Total" => $preçoTotal,
         "Pagamento" => $pagamento
     ];
-    return response()->xml(["NF-e" => $compra]);
+    return response()->xml(["Comprovante" => $pedido]);
 });

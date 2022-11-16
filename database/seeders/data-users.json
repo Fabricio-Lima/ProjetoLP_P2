@@ -1,0 +1,22 @@
+{
+    "admin": {
+        "id": 1,
+        "nome": "Admin",
+        "cpf": 11111111111,
+        "rg": 111111111,
+        "celular": 11111111111,
+        "telefone": 1111111111,
+        "email": "admin@admin.com",
+        "password": "password"
+    },
+    "user": {
+        "id": 2,
+        "nome": "User",
+        "cpf": 22222222222,
+        "rg": 222222222,
+        "celular": 22222222222,
+        "telefone": 2222222222,
+        "email": "user@user.com",
+        "password": "password"
+    }
+}

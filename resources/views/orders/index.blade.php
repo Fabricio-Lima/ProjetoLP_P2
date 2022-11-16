@@ -32,6 +32,9 @@
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Preço Total
                                     </th>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Pagamento
+                                    </th>
                                     <th scope="col" width="200" class="px-6 py-3 bg-gray-50"> </th>
                                 </tr>
                                 </thead>
@@ -59,11 +62,15 @@
                                             {{ $order->precoTotal }}
                                         </td>
 
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            {{ $order->pagamento }}
+                                        </td>
+
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                             <!-- <a href="{{ route('orders.show', $order->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Mostrar</a> -->
                                             <a href="{{ route('orders.edit', $order->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Editar</a>
-                                            <a href="/order/{{$order->id}}/NF-e" download="" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">NF-e</a>
-                                           
+                                            <a href="/order/{{$order->id}}/comprovante" download="" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Comprovante</a>
+
                                             <form class="inline-block" action="{{ route('orders.destroy', $order->id) }}" method="POST" onsubmit="return confirm('Tem certeza?');">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
