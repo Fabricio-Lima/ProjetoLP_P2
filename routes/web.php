@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Order;
 use App\Models\Product;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,12 +39,31 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', \App\Http\Controllers\UsersController::class);
 });
 
+Route::get("/order/{order}/comprovante-pagamento", function ($order) {
+    abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+    $orderObj = Order::where("id", $order)->firstOrFail();
+
+    if (!Gate::allows('admin_access')) abort_if($orderObj->usuario_id != auth()->user()->id, Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+    $paymentVoucher = [
+        "Fornecedor" => "BioPharmacy",
+        "ID" => $orderObj->id,
+        "Cliente" => auth()->user()->nome,
+        "Produto" => $orderObj->produto_id->nome,
+        "Preço Unitário" => $orderObj->produto_id->preco,
+        "Quantidade" => $orderObj->quantidade,
+        "Preço Total" => $orderObj->preçoTotal,
+        "Pagamento" => $orderObj->pagamento
+    ];
+
+    return response()->xml(["comprovante-pagamento" => $paymentVoucher]);
+});
+
 Route::get("/order/{id}/NF-e", function ($id) {
     $orders = Order::all();
     foreach ($orders as $order) {
         if ($id == $order->id) {
-            $idCompra = $order->id;
-            $nome = $order->product->nome;
             $preçoTotal = $order->precoTotal;
             $quantidade = $order->quantidade;
             $preco = $order->product->preco;
