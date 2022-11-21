@@ -18,6 +18,41 @@ A criação de uma plataforma de solicitação de pedidos, com controle de usuá
 - [TailwindCSS](https://tailwindcss.com/)
 - [TailwindUI](https://tailwindui.com/)
 - [Database MySQL](https://www.mysql.com/)
+- [Node.js](https://nodejs.org/en/)
+- [Composer](https://getcomposer.org/download/)
+
+# Instalação
+
+Requisitos:
+- Composer
+- PHP 8
+- Possuir uma instância MySQL
+- Node.js v16 ou superior
+
+## Configurando credenciais de acesso do Banco de Dados
+
+Edite as informações abaixo, adicionando suas credenciais:
+
+``DB_CONNECTION=mysql
+DB_HOST=ip_do_seu_banco_de_dados
+DB_PORT=3306
+DB_DATABASE=nome_banco_de_dados
+DB_USERNAME=usuario_banco_de_dados
+DB_PASSWORD=senha_banco_de_dados
+``
+
+Cole as informações acima, no arquivo .env
+
+```bash
+# Instalar as dependências Laravel
+$ composer update && npm install
+
+# Adicionando Migrations e Seeders
+$ php artisan migrate --seed
+
+# Iniciando a aplicação
+$ php artisan serve
+```
 
 ## License
 
