@@ -1,6 +1,6 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://github.com/Fabricio-Lima/ProjetoLP_P2/blob/v2/public/farmacia-logo.png" width="200"></a></p>
 
-## Sobre o Projeto
+# Sobre o Projeto
 
 Projeto P2 das disciplinas de Linguagem de Programação IV e Banco de Dados I, ministrados pela prof. ª Luciana Ferreira Baptista, da Faculdade de Tecnologia de Jundiaí - Deputado Ary Fossen. 
 
